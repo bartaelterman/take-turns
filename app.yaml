@@ -1,0 +1,5 @@
+runtime: python37
+env_variables:
+  GCS_BUCKET: bucketname
+  GCS_OBJECT_NAME: data.json
+  FLASK_RUN_PORT: 8080
