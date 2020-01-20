@@ -147,8 +147,16 @@ def add_user(username):
 def delete_user(username):
     global USERS
     global DATES
+    users, dates = get_user(username)
+    assignment_date = dates[0]
+
+    # if assignment is already past, remove date from the beginning of the dates list,
+    # otherwise remove a date from the end of the dates list
+    if assignment_date <= datetime.date.today():
+        DATES = DATES[1:]
+    else:
+        DATES = DATES[:-1]
     USERS.remove(username)
-    DATES = DATES[:-1]
     save_data(USERS, DATES)
 
 
